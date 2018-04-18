@@ -1,29 +1,29 @@
 $('document').ready(function() {
-    class MarkupPreviewer extends React.Component {
+    class MarkdownPreviewer extends React.Component {
         constructor(props) {
             super(props)
-            this.state = {markup: 'some test **markup**'}
-            this.updateMarkup = this.updateMarkup.bind(this)
+            this.state = {markdown: this.props.markdown}
+            this.updateMarkdown = this.updateMarkdown.bind(this)
         }
         
-        updateMarkup(newMarkup) {
-            this.setState({markup: newMarkup})
+        updateMarkdown(newMarkdown) {
+            this.setState({markdown: newMarkdown})
         }
         
         render() {
-            const markup = this.state.markup
+            const markdown = this.state.markdown
             
             return React.createElement(
                 'div', 
                 {className: 'previewer'}, 
                 [
                     React.createElement(
-                        MarkupArea, 
+                        MarkdownArea, 
                         {
                             className: 'markdown', 
                             key: 1,
-                            markup: markup,
-                            onMarkupChange: this.updateMarkup
+                            markdown: markdown,
+                            onMarkdownChange: this.updateMarkdown
                         },
                         null
                     ),
@@ -32,7 +32,7 @@ $('document').ready(function() {
                         {
                             className: 'result', 
                             key: 2,
-                            markup: markup
+                            markdown: markdown
                         },
                         null
                     )
@@ -41,16 +41,16 @@ $('document').ready(function() {
         }
     }
     
-    class MarkupArea extends React.Component {
+    class MarkdownArea extends React.Component {
         constructor(props) {
             super(props)
-            this.updateMarkup = this.updateMarkup.bind(this)
+            this.updateMarkdown = this.updateMarkdown.bind(this)
         }
         
-        updateMarkup(event) {
-            const newMarkup = event.target.value
-            this.setState({markup: newMarkup})
-            this.props.onMarkupChange(newMarkup)
+        updateMarkdown(event) {
+            const newMarkdown = event.target.value
+            this.setState({markdown: newMarkdown})
+            this.props.onMarkdownChange(newMarkdown)
         }
         
         render() {
@@ -58,8 +58,8 @@ $('document').ready(function() {
                 'textarea',  
                 {
                     className: this.props.className, 
-                    defaultValue: this.props.markup,
-                    onChange: this.updateMarkup
+                    defaultValue: this.props.markdown,
+                    onChange: this.updateMarkdown
                 }, 
                 null
             )
@@ -75,7 +75,7 @@ $('document').ready(function() {
                 'span',  
                 {
                     className: this.props.className, 
-                    dangerouslySetInnerHTML: { __html: marked(this.props.markup) }
+                    dangerouslySetInnerHTML: { __html: marked(this.props.markdown) }
                 },
                 null
             )
@@ -83,7 +83,7 @@ $('document').ready(function() {
     };
 
     ReactDOM.render(
-        React.createElement(MarkupPreviewer, null, null),
+        React.createElement(MarkdownPreviewer, {markdown: "See how your *markdown* will **look!**"}, null),
         document.querySelector('.container')
     )
 })
