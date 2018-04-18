@@ -17,11 +17,13 @@ $('document').ready(function() {
                 'div', 
                 {className: 'previewer'}, 
                 [
+                    <h1 className='title-markdown' key='1'>Markdown</h1>,
+                    <h1 className='title-result' key='2'>Result</h1>,
                     React.createElement(
                         MarkdownArea, 
                         {
                             className: 'markdown', 
-                            key: 1,
+                            key: 3,
                             markdown: markdown,
                             onMarkdownChange: this.updateMarkdown
                         },
@@ -31,7 +33,7 @@ $('document').ready(function() {
                         ResultArea, 
                         {
                             className: 'result', 
-                            key: 2,
+                            key: 4,
                             markdown: markdown
                         },
                         null
