@@ -1,39 +1,59 @@
 html {
-  height: 100%;
+    height: 100%;
 }
 body {
-  height: 100%;
-  overflow-x: hidden;
+    height: 100%;
 }
 .container {
-  padding: 50px 0px;
-  height: 100%;
-  width: 100%;
-  font-size: 1rem;
-  background-color: tan;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    background-color: #ff9944;
 }
 .previewer {
-  margin: 100px;
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: repeat(2, 50%);
-  grid-gap: 20px;
-  overflow: auto;
-  border: solid black 2px;
+    height: 85%;
+    margin: 5%;
+    display: grid;
+    grid-template-rows: 0% 100%;
+    grid-template-columns: repeat(2, 45%);
+    grid-gap: 8%;
+    overflow: hidden;
+}
+.title-markdown {
+    margin: auto;
+    width: 98%;
+    padding: 10px;
+    text-align: center;
+    background-color: #d0f0ff;
+    border: solid black 2px;
+    box-shadow: rgba(0,0,0,0.3) 10px 20px 30px;
+}
+.title-result {
+    margin: auto;
+    width: 98%;
+    padding: 10px;
+    text-align: center;
+    background-color: #ddffe0;
+    border: solid black 2px;
+    box-shadow: rgba(0,0,0,0.3) -10px 20px 30px;
 }
 .markdown {
-  display: block;
-  height: 200px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: 5%;
-  background-color: #d0f0ff;
+    display: block;
+    padding: 50px;
+    height: 85%;
+    width: 98%;
+    padding: 10px;
+    background-color: #d0f0ff;
+    border: solid black 2px;
+    box-shadow: rgba(0,0,0,0.3) 10px 20px 30px;
 }
 .result {
-  display: block;
-  height: 200px;
-  width: 100%;
-  margin-left: 5%;
-  margin-right: auto;
-  background-color: #ddffe0;
+    display: block;
+    height: 85%;
+    width: 98%;
+    padding: 10px;
+    background-color: #ddffe0;
+    border: solid black 2px;
+    box-shadow: rgba(0,0,0,0.3) -10px 20px 30px;
 }
